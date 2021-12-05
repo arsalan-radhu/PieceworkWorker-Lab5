@@ -1,7 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿/*
+ * Name: Arsalan Arif Radhu
+ * Date: 4 December 2021
+ * Student ID: 100813965
+ * Description: PieceWorkWorkerModel file
+ */
+
 using System.ComponentModel.DataAnnotations;
 
 namespace PieceworkWorker_Lab5.Models
@@ -50,6 +53,7 @@ namespace PieceworkWorker_Lab5.Models
         const int thirdThreshold = 3750;
         const int lastThreshold = 5000;
         const int maxMessages = 15000;
+
         /// <summary>
         /// returns the workers pay based on their messages sent
         /// </summary>
@@ -68,6 +72,8 @@ namespace PieceworkWorker_Lab5.Models
             const decimal thirdThresholdPay = 0.035M;
             const decimal fourthThresholdPay = 0.041M;
             const decimal lastThresholdPay = 0.048M;
+            
+            // Normal Piecework worker
             if (isSenior == false)
             {
                 if (Messages < firstThreshold && Messages > zero)
@@ -94,7 +100,7 @@ namespace PieceworkWorker_Lab5.Models
             }
             else
             {
-
+                // Senior Worker pay calculation
                 if (Messages < firstThreshold && Messages > zero)
                 {
                     employeePay = (decimal)((Messages * seniorFirstThresholdPay) + basePay);

@@ -1,4 +1,10 @@
-﻿@model IEnumerable<PieceworkWorker_Lab5.Models.PieceWorkWorkerModel>
+﻿<!--Name: Arsalan Arif Radhu
+Date: 4 December 2021
+Student ID: 100813965
+Description: Index page file
+-->
+
+@model IEnumerable<PieceworkWorker_Lab5.Models.PieceWorkWorkerModel>
 
 @{
     ViewData["Title"] = "Worker List";
@@ -6,7 +12,6 @@
     int totalMessages = 0;
     decimal totalPay = 0M;
     decimal averagePay = 0M;
-    bool isSeniorWorker;
 }
 
 <h1>Index</h1>
@@ -16,66 +21,69 @@
 </p>
 <table class="table">
     <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.FirstName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LastName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Messages)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.isSenior)
-            </th>
-            <th>
-                Pay
-            </th>
-            <th>
-                Actions
-            </th>
-            <th></th>
-        </tr>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Messages)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.isSenior)
+        </th>
+        <th>
+            Pay
+        </th>
+        <th>
+            Actions
+        </th>
+        <th></th>
+    </tr>
     </thead>
     <tbody>
     @foreach (var item in Model)
     {
-        isSeniorWorker = item.isSenior;
+        bool isSeniorWorker = item.isSenior;
         totalWorkers++;
         totalMessages += item.Messages;
         totalPay += item.FindPay(isSeniorWorker);
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.FirstName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.LastName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Messages)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.isSenior)
-                </td>
-                <td>
-                    @item.FindPay(isSeniorWorker).ToString("C")
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
-                </td>
-            </tr>
-}
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Messages)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.isSenior)
+            </td>
+            <td>
+                @item.FindPay(isSeniorWorker).ToString("C")
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+    }
     </tbody>
 </table>
+
+<!-- Summary Part-->
+
 @if (totalWorkers > 0)
 {
     averagePay = totalPay / totalWorkers;
 
     <div class="row">
-        <div class="col-md-6 offset-3">
+        <div class="col-md-6">
             <p>
                 Total Workers: @totalWorkers
             </p>

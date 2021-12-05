@@ -1,3 +1,10 @@
+/*
+ * Name: Arsalan Arif Radhu
+ * Date: 4 December 2021
+ * Student ID: 100813965
+ * Description: StartUp file
+ */
+
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
