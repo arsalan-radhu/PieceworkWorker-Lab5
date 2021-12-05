@@ -38,6 +38,7 @@ namespace PieceworkWorker_Lab5.Models
         /// <summary>
         /// Tells us whether the worker is senior or not.
         /// </summary>
+        [Display(Name = "Senior Worker ")]
         public bool isSenior { get; set; }
 
         // Common Variables

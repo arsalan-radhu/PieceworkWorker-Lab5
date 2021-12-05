@@ -33,7 +33,7 @@ namespace PieceworkWorker_Lab5
             services.AddMvc(options => options.EnableEndpointRouting = false);
             //Adding the connection string! A;ways just like this for our purposes.
             string connection =
-                @"Server=(localdb)\mssqllocaldb;Database=Lab5Database;Trusted_Connection=true";
+                @"Server=(localdb)\mssqllocaldb;Database=Lab5Database2;Trusted_Connection=true";
             //Adding the DB Context
             services.AddDbContext<PieceworkWorkerContext>(options => options.UseSqlServer(connection));
         }
